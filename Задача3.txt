@@ -1,0 +1,44 @@
+// Задайте произвольный массив.
+// Выведете его элементы, начиная с конца.
+// Использовать рекурсию, не использовать циклы.
+
+Console.WriteLine("Введите размер массива");
+int elementsCount= Convert.ToInt32(Console.ReadLine());
+int [] array = new int[elementsCount];
+Console.WriteLine("Введите минимальное значение числового массива");
+int minRange=Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите максимальное значение числового массива");
+int maxRange=Convert.ToInt32(Console.ReadLine());
+
+
+void fillingArray()
+{
+Console.WriteLine("Массив: ");
+for(int i=0;i<array.Length;i++)
+{
+    array[i]=new Random().Next(minRange,maxRange+1);
+    Console.Write(array[i]+"\t");
+}
+}
+
+void arrayReverse()
+{
+newArray(array,array.Length-1);
+}
+
+void newArray(int[] array,int i)
+{
+if(i<0)
+{
+    return;
+}
+Console.Write(array[i]+"\t");
+newArray(array,i-1);
+}
+fillingArray();
+System.Console.WriteLine();
+System.Console.WriteLine("Развернутый массив:");
+arrayReverse();
+
+//P.S. Немного решил заморочиться сделал рандомно генерируемый массив.
+//     Надеюсь не будет ошибкой что не задал просто через int[] array={};
